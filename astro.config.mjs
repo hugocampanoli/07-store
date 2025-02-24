@@ -9,6 +9,8 @@ import auth from "auth-astro";
 
 import db from "@astrojs/db";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -16,6 +18,6 @@ export default defineConfig({
   },
 
   adapter: netlify(),
-  integrations: [auth(), db()],
+  integrations: [auth(), db(), react()],
   output: "server",
 });
