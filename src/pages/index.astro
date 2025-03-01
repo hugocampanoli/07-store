@@ -3,8 +3,6 @@ import { ProductList } from "@/components";
 import Pagination from "@/components/shared/Pagination.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { actions } from "astro:actions";
-import { User } from "astro:db";
-import { number } from "astro:schema";
 import { getSession } from "auth-astro/server";
 
 const session = await getSession(Astro.request);
