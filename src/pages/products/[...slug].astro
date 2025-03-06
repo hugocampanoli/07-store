@@ -2,6 +2,7 @@
 import ProductSlideshow from "@/components/products/ProductSlideshow.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { actions } from "astro:actions";
+import { ProductImage } from "astro:db";
 
 const { slug } = Astro.params;
 const { data, error } = await Astro.callAction(
@@ -14,9 +15,16 @@ if (error) {
 }
 
 const { product, images } = data;
+const image = images[0].image.startsWith("http")
+  ? images[0].image
+  : `${import.meta.env.PUBLIC_URL}/images/products/${images[0].image}`;
 ---
 
-<MainLayout title={product.title} description={product.description}>
+<MainLayout
+  title={product.title}
+  description={product.description}
+  image={image}
+>
   <!-- image={image} -->
   <!-- <h1>{product.title}</h1> -->
 
