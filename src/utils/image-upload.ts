@@ -24,7 +24,7 @@ export class imageUpload {
       const resp = await cloudinary.uploader.destroy(imageId);
       return true;
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       return false;
     }
   }
